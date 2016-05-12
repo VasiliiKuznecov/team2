@@ -10,7 +10,6 @@ let stageSchema = new Schema({
     name: String,
     description: String,
     questId: { type: Schema.Types.ObjectId, ref: 'Quests' },
-    name: String,
     geolocation: { latitude: Number, longitude: Number },
     photo: String,
     order: Number,
