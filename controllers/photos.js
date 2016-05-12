@@ -2,6 +2,7 @@
 'use strict';
 
 const cloudinary = require('cloudinary');
+const Promise = require('bluebird');
 
 cloudinary.config({
     cloud_name: 'duzgm6fug',
@@ -9,23 +10,10 @@ cloudinary.config({
     api_secret: 'Apvqh2ydlAyVp72wU4V2DiIEZa8'
 });
 
-exports.uploadPhoto = (req, res) => {
-    let data = req.body.data;
-
+exports.uploadPhoto = (req, data) => {
     if (!req.user) {
-        req.commonData.errors.push({
-            text: 'Не авторизованные пользователи не могут добавлять фотографии.'
-        });
-        res.send(401);
+        return Promise.reject();
     }
 
-    cloudinary.uploader.upload(data)
-        .then(result => {
-            // Тут можно записывать result.url в stages.photo
-            res.send(result);
-        })
-        .catch(err => {
-            console.log(err);
-            res.send(err);
-        });
+    return cloudinary.uploader.upload(data)
 };
