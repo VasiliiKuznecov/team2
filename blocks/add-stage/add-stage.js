@@ -29,4 +29,4 @@ module.exports.uploadStage = function (element, questId, order) {
             //console.log(err);
         });
     };
-}
+};

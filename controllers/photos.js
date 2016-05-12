@@ -15,5 +15,5 @@ exports.uploadPhoto = (req, data) => {
         return Promise.reject();
     }
 
-    return cloudinary.uploader.upload(data)
+    return cloudinary.uploader.upload(data);
 };
