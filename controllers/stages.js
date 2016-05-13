@@ -1,5 +1,5 @@
 'use strict';
-const express = require('express');
+
 const fs = require('fs');
 const photoController = require('./photos.js');
 const Stage = require('../models/stages');

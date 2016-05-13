@@ -10,6 +10,8 @@ const config = require('config');
 
 const mongoose = require('./scripts/mongooseConnect');
 
+require('./scripts/setCloudinaryURL')();
+
 const path = require('path');
 const argv = require('minimist')(process.argv.slice(2));
 
