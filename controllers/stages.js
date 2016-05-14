@@ -3,6 +3,7 @@
 const fs = require('fs');
 const photoController = require('./photos.js');
 const Stage = require('../models/stages');
+const mongoose = require('mongoose');
 
 exports.createStage = (req, res) => {
     if (!req.body.file) {
@@ -28,7 +29,7 @@ exports.createStage = (req, res) => {
                     longtitude: req.body.longtitude
                 },
                 order: req.body.order,
-                questId: req.body.questId,
+                questId: mongoose.Types.ObjectId(req.body.questId),
                 photo: result.url,
                 likesCount: 0,
                 commentsCount: 0,
